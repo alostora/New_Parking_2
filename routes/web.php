@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthViews\AuthController;
+use App\Http\Controllers\GuestController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 
@@ -32,4 +33,6 @@ Route::group([
             Route::any('logout', [AuthController::class, 'logout']);
         });
     });
+
+    Route::get('guest/client/reservation-page/{user}', [GuestController::class, 'guestForm']);
 });
