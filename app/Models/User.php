@@ -82,7 +82,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function getClientQrAttribute()
     {
-        return QrCode::size(100)->backgroundColor(255, 255, 0)->generate(url('guest/client/reservation-page/' . $this->id));
+        return QrCode::size(100)->backgroundColor(255, 255, 0)->generate(url('guest/final-client/registration/' . $this->id));
     }
 
     protected function createdAt(): Attribute

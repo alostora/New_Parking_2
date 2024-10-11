@@ -34,5 +34,6 @@ Route::group([
         });
     });
 
-    Route::get('guest/client/reservation-page/{user}', [GuestController::class, 'guestForm']);
+    Route::get('guest/final-client/registration/{user}', [GuestController::class, 'guestForm']);
+    Route::post('guest/final-client/registration', [GuestController::class, 'store']);
 });
