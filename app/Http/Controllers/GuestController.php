@@ -2,12 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Constants\HasLookupType\LookupType;
-use App\Constants\StatusCode;
 use App\Http\Requests\FinalClientCreateRequest;
-use App\Http\Resources\SystemLookupResource;
 use App\Models\FinalClient;
-use App\Models\SystemLookup;
 
 class GuestController extends Controller
 {
@@ -18,10 +14,15 @@ class GuestController extends Controller
 
     public function store(FinalClientCreateRequest $request)
     {
-        return $request->validated();
+        $finalClient = FinalClient::create($request->validated());
 
-        FinalClient::create($request->validated());
+        return redirect(url('guest/final-client/qr-generator/' . $finalClient->id));
+    }
 
-        return view('Guest.createForm');
+    public function QrGenerator(FinalClient $finalClient)
+    {
+        $data['finalClient'] = $finalClient;
+
+        return view('Guest.QrGenerator.qrGenerator', $data);
     }
 }

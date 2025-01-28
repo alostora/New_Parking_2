@@ -1,3 +1,3 @@
 @include('Guest.Main.header')
-@include('Guest.form')
+@include('Guest.QrGenerator.qr')
 @include('Guest.Main.footer')

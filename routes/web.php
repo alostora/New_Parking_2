@@ -36,4 +36,5 @@ Route::group([
 
     Route::get('guest/final-client/registration/{user}', [GuestController::class, 'guestForm']);
     Route::post('guest/final-client/registration', [GuestController::class, 'store']);
+    Route::get('guest/final-client/qr-generator/{finalClient}', [GuestController::class, 'QrGenerator']);
 });
