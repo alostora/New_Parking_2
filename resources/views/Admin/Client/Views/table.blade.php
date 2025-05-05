@@ -49,9 +49,10 @@
                 <thead>
                     <tr>
                         <th>#</th>
+                        <th>@lang('client.QR')</th>
                         <th>@lang('client.name')</th>
                         <th>@lang('client.phone')</th>
-                        <th>@lang('client.country')</th>
+                        <th>@lang('client.garage')</th>
                         <th>@lang('client.available_customer_count')</th>
                         <th>@lang('client.operations')</th>
                     </tr>
@@ -68,7 +69,7 @@
                                 </td>
                                 <td> {{ $user->name }} </td>
                                 <td> {{ $user->phone }} </td>
-                                <td> {{ $user->country ? $user->country->name : '' }} </td>
+                                <td> {{ $user->garage ? $user->garage->name : '' }} </td>
                                 <td> {{ $user->available_customer_count }} </td>
                                 <td>
                                     <div class="btn-group">
@@ -131,8 +132,8 @@
                         .smil_bg {
                             width: 234px;
                             height: 234px;
-                            border-radius: 50%;
-                            background-color: yellow;
+                            {{-- border-radius: 50%; --}}
+
                             display: flex;
                             justify-content: center;
                             text-align: center;
@@ -142,10 +143,10 @@
                         .smiley-face {
                             width: 220px;
                             height: 220px;
-                            border-radius: 50%;
-                            background-color: yellow;
+                            {{-- border-radius: 50%; --}}
+
                             position: relative;
-                            border: 6px solid black;
+                            {{-- border: 6px solid black; --}}
                         }
                         .rate_me {
                             position: absolute;
@@ -171,8 +172,8 @@
                             right: 20.7%;
                             width:4%;
                             height: 11px;
-                            border-radius: 25px;
-                            border: 7px solid black;
+                            {{-- border-radius: 25px; --}}
+                            {{-- border: 7px solid black; --}}
                             rotate: -15deg;
                         }
                         .style_font_2{
@@ -181,8 +182,8 @@
                             left: 43.8%;
                             width: 6%;
                             height: 12px;
-                            border-radius: 25px;
-                            border: 7px solid black;
+                            {{-- border-radius: 25px; --}}
+                            {{-- border: 7px solid black; --}}
                             rotate: 15deg;
                         }
                         .img{
@@ -198,7 +199,7 @@
                             left: 20%;
                             width: 80%;
                             height: 20%;
-                            border-radius: 50%;
+                            {{-- border-radius: 50%; --}}
                             border-bottom: 8px solid black;
                         }
                         .mouth_circle {
@@ -208,7 +209,7 @@
                             transform: translate(-50%, -50%);
                             height: 90px;
                             width:80%;
-                            border-radius: 0 0 200px 200px;
+                            {{-- border-radius: 0 0 200px 200px; --}}
                             border-bottom: 8px solid black;
                             border-left: 8px solid black;
                             border-right: 8px solid black;
@@ -219,8 +220,8 @@
                             right: 5%;
                             width: 15%;
                             height: 1px;
-                            border-radius: 25px;
-                            border: 8px solid black;
+                            {{-- border-radius: 25px; --}}
+                            {{-- border: 8px solid black; --}}
                             rotate: -15deg;
                         }
                         .mouth_right {
@@ -229,8 +230,8 @@
                             left: 5%;
                             width: 15%;
                             height: 1px;
-                            border-radius: 25px;
-                            border: 8px solid black;
+                            {{-- border-radius: 25px; --}}
+                            {{-- border: 8px solid black; --}}
                             rotate: 15deg;
                         }
                     </style>
@@ -242,17 +243,11 @@
                         <div class="smil_bg">
                             <div class="smiley">
                                 <div class="smiley-face">
-                                    {{-- <div class="style_font_1"></div>
-                                    <div class="style_font_2"></div>
-                                    <div class="rate_me">
-                                        <h1 class="font-style">قــيــمـنى</h1>
-                                    </div> --}}
+
                                     <div class="img">
                                         ${document.getElementById(companyId).innerHTML}
                                     </div>
-                                    {{-- <div class="mouth_left"></div>
-                                    <div class="mouth_right"></div>
-                                    <div class="mouth_circle"></div> --}}
+
                                 </div>
                             </div>
                         </div>

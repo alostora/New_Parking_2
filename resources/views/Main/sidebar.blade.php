@@ -35,6 +35,12 @@
                     </li>
 
                     <li>
+                        <a href="{{ url('admin/garages') }}">
+                            <i class="fa fa-table"></i> @lang('sidebar.garages')
+                        </a>
+                    </li>
+
+                    <li>
                         <a href="{{ url('admin/clients/search?active=active') }}">
                             <i class="ion ion-ios-people"></i> @lang('sidebar.edit_client')
                         </a>

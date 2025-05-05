@@ -44,6 +44,23 @@
                         <div class="row">
                             <div class="form-group">
                                 <div class="col-md-6">
+                                    <label for="garage_id">@lang('client.garage')</label>
+                                    <select class="form-control select2" name="garage_id" id="garage_id" required>
+                                        <option value="">@lang('filter.select')</option>
+                                        @foreach ($garages as $garage)
+                                            {{ $selected = $garage->id == $user->garage_id ? 'selected' : '' }}
+                                            <option value="{{ $garage->id }}" {{ $selected }}>
+                                                {{ $garage->name }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-6">
 
                                     <label for="name">@lang('client.name')</label>
                                     <input type="text" class="form-control" name="name" id="name"

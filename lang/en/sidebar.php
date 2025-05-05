@@ -18,6 +18,8 @@ return [
 
     "admins" => "Admins",
 
+    "garages" => "Garages",
+
     "clients" => "Clients",
 
     "companies" => "Companies",

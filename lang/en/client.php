@@ -7,6 +7,7 @@ return [
     'query_string' => 'Query String',
     'select' => 'Select',
 
+    'QR' => 'QR',
     'name' => 'Client Name',
     'email' => 'Email',
     'password' => 'Password',
@@ -26,6 +27,7 @@ return [
     "governorate" => "City",
     "governorates" => "Cities",
     "file" => "Image",
+    "garage" => "Garage",
 
 
     //operatoins

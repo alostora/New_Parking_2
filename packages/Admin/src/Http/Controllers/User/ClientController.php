@@ -13,6 +13,7 @@ use App\Constants\SystemDefault;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Auth\UserResource;
 use App\Models\Country;
+use App\Models\Garage;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -58,6 +59,8 @@ class ClientController extends Controller
             ->where('stopped_at', null)
             ->get();
 
+        $data['garages'] = Garage::where('stopped_at', null)->get();
+
         return view('Admin/Client/create', $data);
     }
 
@@ -80,6 +83,8 @@ class ClientController extends Controller
             ->where('type', CountryType::GOVERNORATE['code'])
             ->where('stopped_at', null)
             ->get();
+
+        $data['garages'] = Garage::where('stopped_at', null)->get();
 
         return view('Admin/Client/edit', $data);
     }

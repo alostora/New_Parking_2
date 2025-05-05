@@ -11,25 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('final_clients', function (Blueprint $table) {
+        Schema::create('incremental_numbers', function (Blueprint $table) {
 
             $table->uuid('id')->primary();
 
-            $table->string('name')->nullable();
-
-            $table->string('email')->nullable();
-
-            $table->string('phone')->nullable();
-
-            $table->foreignUuid('client_id')->nullable();
+            $table->foreignUuid('final_client_id')->nullable();
 
             $table->foreignUuid('garage_id')->nullable();
 
-            $table->timestamp('stopped_at')->nullable();
+            $table->string('number')->nullable();
 
             $table->timestamps();
-
-            $table->softDeletes();
         });
     }
 
@@ -38,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('final_clients');
+        Schema::dropIfExists('incremental_numbers');
     }
 };

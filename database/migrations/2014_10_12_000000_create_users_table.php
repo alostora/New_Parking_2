@@ -45,6 +45,8 @@ return new class extends Migration
 
             $table->foreignUuid('file_id')->nullable();
 
+            $table->foreignUuid('garage_id')->nullable();
+
             $table->timestamp('email_verified_at')->nullable();
 
             $table->timestamp('stopped_at')->nullable();

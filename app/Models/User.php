@@ -46,6 +46,8 @@ class User extends Authenticatable implements MustVerifyEmail
 
         'user_account_type_id',
 
+        'garage_id',
+
         'file_id',
 
         'api_token',
@@ -82,7 +84,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function getClientQrAttribute()
     {
-        return QrCode::size(100)->backgroundColor(255, 255, 0)->generate(url('guest/final-client/registration/' . $this->id));
+        return QrCode::size(100)/* ->backgroundColor(255, 255, 0) */->generate(url('guest/final-client/registration/' . $this->id));
     }
 
     protected function createdAt(): Attribute
@@ -127,5 +129,10 @@ class User extends Authenticatable implements MustVerifyEmail
     public function accountType(): BelongsTo
     {
         return $this->belongsTo(SystemLookup::class, 'user_account_type_id', 'id');
+    }
+
+    public function garage(): BelongsTo
+    {
+        return $this->belongsTo(Garage::class, 'garage_id', 'id');
     }
 }

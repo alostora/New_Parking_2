@@ -28,8 +28,22 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
 
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-6">
+                                    <label for="garage_id">@lang('client.garage')</label>
+                                    <select class="form-control select2" name="garage_id" id="garage_id" required>
+                                        <option value="">@lang('filter.select')</option>
+                                        @foreach ($garages as $garage)
+                                            <option value="{{ $garage->id }}">{{ $garage->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
                             <div class="form-group">
                                 <div class="col-md-6">
 

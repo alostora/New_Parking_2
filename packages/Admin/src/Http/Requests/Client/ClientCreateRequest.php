@@ -55,6 +55,13 @@ class ClientCreateRequest extends FormRequest
                 Rule::exists('countries', 'id')->where('type', CountryType::GOVERNORATE['code'])
             ],
 
+            "garage_id" => [
+                "required",
+                "uuid",
+                "string",
+                Rule::exists('garages', 'id')
+            ],
+
             'file' => ['nullable', 'file'],
         ];
     }

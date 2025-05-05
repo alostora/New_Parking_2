@@ -7,6 +7,7 @@ return [
     'query_string' => 'كلمة البحث',
     'select' => 'اختر',
 
+    'QR' => 'QR',
     'name' => 'اسم العميل',
     'email' => ' البريد الاليكتروني',
     'password' => 'كلمة المرور',
@@ -26,6 +27,7 @@ return [
     "governorate" => "المدينة",
     "governorates" => "المدن",
     "file" => "صورة",
+    "garage" => "الموقف",
 
 
     //operatoins

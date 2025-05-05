@@ -15,8 +15,10 @@ return [
     "governorates" => "المدن",
 
     "users" => "المستخدمون",
-    
+
     "admins" => "الأدمن",
+
+    "garages" => "المواقف",
 
     "clients" => "العملاء",
 
