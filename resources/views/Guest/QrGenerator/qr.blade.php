@@ -11,12 +11,12 @@
                 <!-- /.box-header -->
                 <!-- form start -->
 
-                <div>
+                <div id="qr-code-container">
                     {!! $finalClient->final_client_qr !!}
                 </div>
 
                 <div class="box-footer">
-                    <button type="submit" class="btn btn-success">@lang('guest.submit')</button>
+                    <button type="submit" class="btn btn-success" onclick="downloadQR()">@lang('guest.submit')</button>
                 </div>
             </div>
             <!-- /.box -->
@@ -25,3 +25,19 @@
     <!-- /.row -->
 </section>
 <!-- /.content -->
+<!-- Your Blade template -->
+
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<script>
+    function downloadQR() {
+        const container = document.getElementById('qr-code-container');
+
+        html2canvas(container).then(canvas => {
+            // Convert canvas to image and download
+            const link = document.createElement('a');
+            link.download = 'qr-code.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        });
+    }
+</script>
