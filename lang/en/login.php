@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'tipo' => 'Tipo',
+    'vpm' => 'VPM',
     'dashboard' => 'Dashboard',
     'email' => 'Email',
     'password' => 'Password',

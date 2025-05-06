@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'tipo' => 'Tipo',
+    'vpm' => 'VPM',
     'dashboard' => 'لوحة التحكم',
     'email' => 'البريد الالكتروني',
     'password' => 'كلمة المرور',

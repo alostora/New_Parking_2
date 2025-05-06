@@ -2,7 +2,7 @@
 
 return [
 
-    "app_name" => "Tipo Smart",
+    "app_name" => "VPM",
 
     "online" => "متصل",
 

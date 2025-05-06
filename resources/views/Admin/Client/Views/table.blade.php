@@ -235,23 +235,13 @@
                             rotate: 15deg;
                         }
                     </style>
-                    <title>Tipo smart</title>
+                    <title>VPM QR</title>
                 </head>
 
                 <body>
-                    <center>
-                        <div class="smil_bg">
-                            <div class="smiley">
-                                <div class="smiley-face">
-
-                                    <div class="img">
-                                        ${document.getElementById(companyId).innerHTML}
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </center>
+                    <div style="width: 100%; height: 100%; display: flex; justify-content: center; text-align: center; align-items: center;">
+                        ${document.getElementById(companyId).innerHTML}
+                    </div>
                 </body>
 
             </html>`
