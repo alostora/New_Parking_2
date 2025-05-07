@@ -21,7 +21,13 @@ return [
     "stopped_at" => "Stopped At",
     "collected_cash" => "Collected Cash",
     "delivered_cash" => "Delivered Cash",
+
+    "new_customers" => "New Customer",
+    "total_last_charged_customer" => "Last Charged Customer",
+    "total_customer_count" => "Total Customer Count",
     "available_customer_count" => "Available Customer Count",
+    "used_customer_count" => "Used Customer Count",
+
     "countries" => "Countries",
     "country" => "Country",
     "governorate" => "City",

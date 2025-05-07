@@ -33,6 +33,10 @@ class FinalClient extends Model
 
         'garage_id',
 
+        'final_cliend_incremental_number',
+
+        'guest_id',
+
         'stopped_at',
     ];
 

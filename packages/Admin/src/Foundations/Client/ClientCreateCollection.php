@@ -18,6 +18,8 @@ class ClientCreateCollection
 
         $validated['user_account_type_id'] = $user_account_type->id;
 
+        $validated['total_customer_count'] = $validated['available_customer_count'];
+
         if (isset($validated['file'])) {
 
             $validated['type'] = FileModuleType::USER_PROFILE_AVATAR['key'];

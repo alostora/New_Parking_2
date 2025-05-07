@@ -6,10 +6,11 @@ use App\Constants\FileModuleType;
 use App\Foundations\File\FileCreateCollection;
 use App\Foundations\File\FileDeleteCollection;
 use App\Models\File;
+use App\Models\User;
 
 class ClientUpdateCollection
 {
-    public static function updateClient($request, $user)
+    public static function updateClient($request, User $user)
     {
 
         $validated = $request->validated();
@@ -32,6 +33,8 @@ class ClientUpdateCollection
 
             unset($validated['password']);
         }
+
+        $validated['total_customer_count'] = $validated['available_customer_count'] + $user->total_customer_count;
 
         $user->update($validated);
 

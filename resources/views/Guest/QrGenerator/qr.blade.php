@@ -39,5 +39,7 @@
             link.href = canvas.toDataURL('image/png');
             link.click();
         });
+
+        alert("تم حفظ الصورة بنجاح");
     }
 </script>

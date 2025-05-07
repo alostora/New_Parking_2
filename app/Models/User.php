@@ -40,6 +40,8 @@ class User extends Authenticatable implements MustVerifyEmail
 
         "available_customer_count",
 
+        "total_customer_count",
+
         'country_id',
 
         'governorate_id',
@@ -134,5 +136,22 @@ class User extends Authenticatable implements MustVerifyEmail
     public function garage(): BelongsTo
     {
         return $this->belongsTo(Garage::class, 'garage_id', 'id');
+    }
+
+    public function getTotalLastChargedCustomerAttribute()
+    {
+        return $this->available_customer_count;
+    }
+
+    public function getTotalAvailableCustomerAttribute()
+    {
+        return $this->total_customer_count - $this->totalUsedCustomer;
+    }
+
+    public function getTotalUsedCustomerAttribute()
+    {
+        $usedCustomer = FinalClient::where('client_id', $this->id)->latest()->first();
+
+        return $usedCustomer ? $usedCustomer->final_cliend_incremental_number : 0;
     }
 }

@@ -31,7 +31,9 @@ return new class extends Migration
 
             $table->string('api_token')->nullable();
 
-            $table->integer('available_customer_count')->nullable();
+            $table->integer('available_customer_count')->default(0);
+
+            $table->integer('total_customer_count')->default(0);
 
             $table->foreignUuid('country_id')->nullable();
 

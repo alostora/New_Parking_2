@@ -88,7 +88,7 @@
                                 </div>
 
                                 <div class="col-md-6">
-                                    <label for="available_customer_count">@lang('client.available_customer_count')</label>
+                                    <label for="available_customer_count">@lang('client.new_customers')<span style="color:red">(+-)</span></label>
                                     <input type="number" class="form-control" name="available_customer_count"
                                         id="available_customer_count"
                                         value="{{ (int) $user->available_customer_count }}" required>

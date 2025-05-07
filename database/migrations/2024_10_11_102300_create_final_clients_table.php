@@ -21,6 +21,9 @@ return new class extends Migration
 
             $table->string('phone')->nullable();
 
+            $table->string('final_cliend_incremental_number')->nullable();
+            $table->string('guest_id')->nullable();
+
             $table->foreignUuid('client_id')->nullable();
 
             $table->foreignUuid('garage_id')->nullable();

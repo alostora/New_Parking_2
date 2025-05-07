@@ -6,6 +6,7 @@ use App\Models\FinalClient;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Contracts\Validation\Rule;
+use Illuminate\Support\Facades\Session;
 
 
 class ValidateFinalClientTimeRegisterPossible implements Rule
@@ -32,16 +33,13 @@ class ValidateFinalClientTimeRegisterPossible implements Rule
     public function passes($attribute, $value): bool
     {
         $finalClient = FinalClient::where('client_id', $value)
-            ->where('name', $this->name)
-            ->where('phone', $this->phone)
+            ->where('guest_id', Session::get('guest_id'))
             ->latest()
             ->first();
 
-        $availableCustomerCount = User::find($value)->available_customer_count;
+        $customer = User::find($value);
 
-        $finalClientCount = FinalClient::where('client_id', $value)->count();
-
-        if ($availableCustomerCount - $finalClientCount <= 0) {
+        if ($customer->totalAvailableCustomer - $customer->totalUsedCustomer <= 0) {
 
             $this->message = "لا يمكن التسجيل لان مزود الخدمه قد اتم العدد المتاح";
 

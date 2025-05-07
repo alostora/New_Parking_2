@@ -21,7 +21,13 @@ return [
     "stopped_at" => "تارخ الايقاف",
     "collected_cash" => "الاكراميات المحصلة",
     "delivered_cash" => "المبالغ المستلمة",
+
+    "new_customers" => "عملاء جدد",
+    "total_last_charged_customer" => "العملاء المضافة اخيرا",
+    "total_customer_count" => "عدد العملاء الكلي",
     "available_customer_count" => "عدد العملاء المتاح",
+    "used_customer_count" => "عدد العملاء المستخدم",
+
     "countries" => "الدول",
     "country" => "الدولة",
     "governorate" => "المدينة",

@@ -53,7 +53,11 @@
                         <th>@lang('client.name')</th>
                         <th>@lang('client.phone')</th>
                         <th>@lang('client.garage')</th>
+                        <th>@lang('client.total_customer_count')</th>
+                        <th>@lang('client.total_last_charged_customer')</th>
+                        <th>@lang('client.used_customer_count')</th>
                         <th>@lang('client.available_customer_count')</th>
+
                         <th>@lang('client.operations')</th>
                     </tr>
                 </thead>
@@ -70,7 +74,12 @@
                                 <td> {{ $user->name }} </td>
                                 <td> {{ $user->phone }} </td>
                                 <td> {{ $user->garage ? $user->garage->name : '' }} </td>
-                                <td> {{ $user->available_customer_count }} </td>
+                                <td> {{ $user->total_customer_count }} </td>
+                                <td> {{ $user->totalLastChargedCustomer }} </td>
+                                <td> {{ $user->totalUsedCustomer }} </td>
+                                <td> {{ $user->totalAvailableCustomer }} </td>
+
+
                                 <td>
                                     <div class="btn-group">
                                         <a href="{{ url('admin/client/edit/' . $user->id) }}"
