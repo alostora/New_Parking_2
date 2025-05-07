@@ -38,19 +38,20 @@ class FinalClient extends Model
 
     protected $casts = [
 
-        'stopped_at' => 'datetime'
+        'stopped_at' => 'datetime',
+        'created_at' => 'datetime'
     ];
 
     protected $appends = [
         'final_client_qr',
     ];
 
-    protected function createdAt(): Attribute
-    {
-        return Attribute::make(
-            get: fn(string $value) => date('Y-m-d', strtotime($value)),
-        );
-    }
+    // protected function createdAt(): Attribute
+    // {
+    //     return Attribute::make(
+    //         get: fn(string $value) => date('Y-m-d', strtotime($value)),
+    //     );
+    // }
 
     public function client(): BelongsTo
     {

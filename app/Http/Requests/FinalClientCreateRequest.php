@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\ValidateFinalClientTimeRegisterPossible;
 use Illuminate\Foundation\Http\FormRequest;
 
 class FinalClientCreateRequest extends FormRequest
@@ -27,7 +28,14 @@ class FinalClientCreateRequest extends FormRequest
 
             "phone" => ["required", "string", "max:255"],
 
-            "client_id" => ["required", "string", "uuid", "exists:users,id", "max:255"],
+            "client_id" => [
+                "required",
+                "string",
+                "uuid",
+                "exists:users,id",
+                "max:255",
+                new ValidateFinalClientTimeRegisterPossible($this->name, $this->phone)
+            ],
         ];
     }
 }

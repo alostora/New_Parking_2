@@ -22,12 +22,10 @@ Route::group([
         Route::post('login', [AuthController::class, 'login']);
 
         Route::group([
-
             'middleware' => [
                 'auth:sanctum',
                 'is_verified'
             ]
-
         ], function () {
 
             Route::any('logout', [AuthController::class, 'logout']);
