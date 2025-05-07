@@ -42,7 +42,10 @@ class ValidateFinalClientTimeRegisterPossible implements Rule
         $finalClientCount = FinalClient::where('client_id', $value)->count();
 
         if ($availableCustomerCount - $finalClientCount <= 0) {
+
             $this->message = "لا يمكن التسجيل لان مزود الخدمه قد اتم العدد المتاح";
+
+            return false;
         }
 
         $hoursDiff = 0;
@@ -57,11 +60,13 @@ class ValidateFinalClientTimeRegisterPossible implements Rule
 
             if ($hoursDiff < 12) {
 
-                $this->message = "لا يمكنك التسجيل قبل " . (12 - $hoursDiff) . " ساعة";
+                $this->message = "لا يمكنك الحصول علي ساعة خصم اضافية مرة اخري قبل " . (12 - $hoursDiff) . " ساعة";
+
+                return false;
             }
         }
 
-        return ($hoursDiff < 12) ? false : true;
+        return  true;
     }
 
     /**

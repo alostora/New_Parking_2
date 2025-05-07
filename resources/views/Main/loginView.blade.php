@@ -41,7 +41,7 @@
 <body class="hold-transition login-page" dir="{{ $dir }}">
     <div class="login-box">
         <div class="login-logo">
-            <span><b>VPM</b></span>
+            <span><b>VPM</b>VOUCHER</span>
         </div>
         <div class="login-box-body">
 
