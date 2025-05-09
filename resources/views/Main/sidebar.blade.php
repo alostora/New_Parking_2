@@ -14,37 +14,47 @@
                 </a>
                 <ul class="treeview-menu level-two">
 
-                    <!-- countries -->
-                    <li>
-                        <a href="{{ url('admin/countries') }}">
-                            <i class="ion ion-earth"></i>@lang('sidebar.countries')
-                        </a>
-                    </li>
+                    @if (in_array(auth()->user()->accountType->code, [
+                            \App\Constants\HasLookupType\UserAccountType::ADMIN['code'],
+                            \App\Constants\HasLookupType\UserAccountType::ROOT['code'],
+                        ]))
+                        <!-- countries -->
+                        <li>
+                            <a href="{{ url('admin/countries') }}">
+                                <i class="ion ion-earth"></i>@lang('sidebar.countries')
+                            </a>
+                        </li>
 
-                    <!-- governorates -->
-                    <li>
-                        <a href="{{ url('admin/governorates-search-all') }}">
-                            <i class="fa fa-map"></i>@lang('sidebar.governorates')
-                        </a>
-                    </li>
+                        <!-- governorates -->
+                        <li>
+                            <a href="{{ url('admin/governorates-search-all') }}">
+                                <i class="fa fa-map"></i>@lang('sidebar.governorates')
+                            </a>
+                        </li>
 
-                    <li>
-                        <a href="{{ url('admin/users') }}">
-                            <i class="fa fa-users"></i> @lang('sidebar.admins')
-                        </a>
-                    </li>
+                        <li>
+                            <a href="{{ url('admin/users') }}">
+                                <i class="fa fa-users"></i> @lang('sidebar.admins')
+                            </a>
+                        </li>
 
-                    <li>
-                        <a href="{{ url('admin/garages') }}">
-                            <i class="fa fa-table"></i> @lang('sidebar.garages')
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="{{ url('admin/clients/search?active=active') }}">
-                            <i class="ion ion-ios-people"></i> @lang('sidebar.edit_client')
-                        </a>
-                    </li>
+                        <li>
+                            <a href="{{ url('admin/garages') }}">
+                                <i class="fa fa-table"></i> @lang('sidebar.garages')
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url('admin/clients/search?active=active') }}">
+                                <i class="ion ion-ios-people"></i> @lang('sidebar.edit_client')
+                            </a>
+                        </li>
+                    @elseif(in_array(auth()->user()->accountType->code, [\App\Constants\HasLookupType\UserAccountType::CLIENT['code']]))
+                        <li>
+                            <a href="{{ url('client/final-clients/search?active=active') }}">
+                                <i class="ion ion-ios-people"></i> @lang('sidebar.edit_client')
+                            </a>
+                        </li>
+                    @endif
                 </ul>
             </li>
 

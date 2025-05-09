@@ -58,6 +58,7 @@
                         <th>@lang('client.used_customer_count')</th>
                         <th>@lang('client.available_customer_count')</th>
 
+                        <th>@lang('client.final_clients')</th>
                         <th>@lang('client.operations')</th>
                     </tr>
                 </thead>
@@ -79,6 +80,12 @@
                                 <td> {{ $user->totalUsedCustomer }} </td>
                                 <td> {{ $user->totalAvailableCustomer }} </td>
 
+                                <td>
+                                    <a href="{{ url('admin/final-clients/search/' . $user->id) }}"
+                                        class="btn bg-red btn-sm">
+                                        <i class="fa fa-users"></i>
+                                    </a>
+                                </td>
 
                                 <td>
                                     <div class="btn-group">

@@ -19,7 +19,7 @@ class GuestController extends Controller
     {
         $validated = $request->validated();
 
-        $validated['garage_id'] = User::find($validated['client_id'])->first()->garage_id;
+        $validated['garage_id'] = User::find($validated['client_id'])->garage_id;
 
 
         $lastIncrementalNumber = FinalClient::where('client_id', $validated['client_id'])->latest()->first();

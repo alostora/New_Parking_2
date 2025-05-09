@@ -2,7 +2,7 @@
 
 return [
 
-    'page_title' => 'العملاء',
+    'page_title' => 'العملاء النهائيين',
     'filter' => 'فلتر',
     'query_string' => 'كلمة البحث',
     'select' => 'اختر',
@@ -35,6 +35,7 @@ return [
     "governorates" => "المدن",
     "file" => "صورة",
     "garage" => "الموقف",
+    "related_client" => "العميل المرتبط",
 
 
     //operatoins

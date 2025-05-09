@@ -1,6 +1,5 @@
 <?php
 
-use Admin\Http\Controllers\Company\CompanyController;
 use Admin\Http\Controllers\Company\CompanyEmployeeController;
 use Admin\Http\Controllers\Country\CountryController;
 use Admin\Http\Controllers\Country\GovernorateController;
@@ -75,9 +74,3 @@ Route::group([
 Route::get('system-lookup-types', [SystemLookupController::class, 'lookupTypes']);
 
 Route::get('system-lookups/{type}', [SystemLookupController::class, 'index']);
-
-
-
-Route::get('client-list-companies/{user}', [CompanyController::class, 'clientCompanies']);
-
-Route::get('company-list-employees', [CompanyEmployeeController::class, 'search']);

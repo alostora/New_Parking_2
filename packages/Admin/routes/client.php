@@ -12,6 +12,8 @@ Route::group([
 
     Route::get('clients/search', [ClientController::class, 'search']);
 
+    Route::get('final-clients/search/{user}', [ClientController::class, 'searchFinalClient']);
+
     Route::get('client/create', [ClientController::class, 'create']);
 
     Route::post('client', [ClientController::class, 'store']);

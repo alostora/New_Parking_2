@@ -2,7 +2,7 @@
 
 return [
 
-    'page_title' => 'Clients',
+    'page_title' => 'Final Clients',
     'filter' => 'Filter',
     'query_string' => 'Query String',
     'select' => 'Select',
@@ -35,6 +35,7 @@ return [
     "governorates" => "Cities",
     "file" => "Image",
     "garage" => "Garage",
+    "related_client" => "Related Client",
 
 
     //operatoins

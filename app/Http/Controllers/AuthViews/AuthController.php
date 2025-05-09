@@ -24,8 +24,9 @@ class AuthController extends Controller
             if (
                 in_array(auth()->user()->accountType->code, [UserAccountType::ADMIN['code'], UserAccountType::ROOT['code']])
             ) {
-
                 return redirect(url('admin'));
+            } elseif (in_array(auth()->user()->accountType->code, [UserAccountType::CLIENT['code']])) {
+                return redirect(url('client'));
             } else {
                 $this->logOut($request);
             }
