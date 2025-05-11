@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -37,10 +38,6 @@ class User extends Authenticatable implements MustVerifyEmail
         'password',
 
         'address',
-
-        "available_customer_count",
-
-        "total_customer_count",
 
         'country_id',
 
@@ -138,20 +135,26 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->belongsTo(Garage::class, 'garage_id', 'id');
     }
 
-    public function getTotalLastChargedCustomerAttribute()
+    public function availableFinalClientPackages(): HasMany
     {
-        return $this->available_customer_count;
+        return $this->hasMany(AvailableFinalClientPackage::class, 'client_id', 'id');
     }
 
-    public function getTotalAvailableCustomerAttribute()
+    public function getAvailableCustomerCountAttribute()
     {
-        return $this->total_customer_count - $this->totalUsedCustomer;
+        $availableFinalClientPackages = $this->availableFinalClientPackages()->latest()->first();
+        return $availableFinalClientPackages ? $availableFinalClientPackages->available_customer_count : 0;
     }
 
     public function getTotalUsedCustomerAttribute()
     {
-        $usedCustomer = FinalClient::where('client_id', $this->id)->latest()->first();
+        $availableFinalClientPackages = $this->availableFinalClientPackages()->latest()->first();
+        return $availableFinalClientPackages ? $availableFinalClientPackages->final_cliend_number_of_usage : 0;
+    }
 
-        return $usedCustomer ? $usedCustomer->final_cliend_incremental_number : 0;
+    public function getTotalAvailableCustomerAttribute()
+    {
+        $availableFinalClientPackages = $this->availableFinalClientPackages()->latest()->first();
+        return $availableFinalClientPackages ? $availableFinalClientPackages->available_customer_count - $availableFinalClientPackages->final_cliend_number_of_usage : 0;
     }
 }

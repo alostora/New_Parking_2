@@ -12,10 +12,10 @@ class FinalClientController extends Controller
 {
 
 
-    public function index(User $user, Request $request)
+    public function index(Request $request)
     {
         $data = ClientSearchCollection::searchFinalClient(
-            $user,
+            auth()->user(),
             $request->get('query_string') ? $request->get('query_string') : -1,
             $request->get('active') ? $request->get('active') : -1,
             $request->get('sort') ? $request->get('sort') : SystemDefault::DEFAUL_SORT,

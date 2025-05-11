@@ -34,7 +34,7 @@ class FinalClientCreateRequest extends FormRequest
                 "uuid",
                 "exists:users,id",
                 "max:255",
-                new ValidateFinalClientTimeRegisterPossible($this->name, $this->phone)
+                new ValidateFinalClientTimeRegisterPossible()
             ],
         ];
     }

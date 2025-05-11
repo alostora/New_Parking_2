@@ -14,16 +14,16 @@
                     <div class="color-palette-set">
                         <div class="bg-blue disabled color-palette">
                             <span>
-                                @lang('general.total') : {{ $count_inactive + $count_active }}
+                                @lang('client.total_customer_count') : {{ auth()->user()->availableCustomerCount }}
                             </span>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-4 col-md-2">
                     <div class="color-palette-set">
-                        <div class="bg-green disabled color-palette">
+                        <div class="bg-red disabled color-palette">
                             <span>
-                                @lang('final_client.active') : {{ $count_active }}
+                                @lang('client.used_customer_count') : {{ auth()->user()->totalUsedCustomer }}
                             </span>
                         </div>
                     </div>
@@ -31,9 +31,9 @@
 
                 <div class="col-sm-4 col-md-2">
                     <div class="color-palette-set">
-                        <div class="bg-red disabled color-palette">
+                        <div class="bg-green disabled color-palette">
                             <span>
-                                @lang('final_client.inactive') : {{ $count_inactive }}
+                                @lang('client.available_customer_count') : {{ auth()->user()->totalAvailableCustomer }}
                             </span>
                         </div>
                     </div>
@@ -48,7 +48,7 @@
                         <th>@lang('final_client.name')</th>
                         <th>@lang('final_client.phone')</th>
                         <th>@lang('final_client.garage')</th>
-                        <th>@lang('final_client.related_client')</th>
+                        {{-- <th>@lang('final_client.related_client')</th> --}}
                     </tr>
                 </thead>
                 <tbody>
@@ -59,7 +59,7 @@
                                 <td> {{ $finalClient->name }} </td>
                                 <td> {{ $finalClient->phone }} </td>
                                 <td> {{ $finalClient->garage->name }} </td>
-                                <td> {{ $finalClient->client->name }} </td>
+                                {{-- <td> {{ $finalClient->client->name }} </td> --}}
                             </tr>
                         @endforeach
                     @endif

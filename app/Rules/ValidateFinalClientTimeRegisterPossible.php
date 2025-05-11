@@ -20,15 +20,7 @@ class ValidateFinalClientTimeRegisterPossible implements Rule
      * @return bool
      */
 
-    public $name;
-    public $phone;
     public $message;
-
-    public function __construct($name, $phone)
-    {
-        $this->name = $name;
-        $this->phone = $phone;
-    }
 
     public function passes($attribute, $value): bool
     {
@@ -39,7 +31,7 @@ class ValidateFinalClientTimeRegisterPossible implements Rule
 
         $customer = User::find($value);
 
-        if ($customer->totalAvailableCustomer - $customer->totalUsedCustomer <= 0) {
+        if ($customer->totalAvailableCustomer <= 0) {
 
             $this->message = "لا يمكن التسجيل لان مزود الخدمه قد اتم العدد المتاح";
 

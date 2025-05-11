@@ -5,6 +5,7 @@ namespace Admin\Foundations\Client;
 use App\Constants\FileModuleType;
 use App\Foundations\File\FileCreateCollection;
 use App\Foundations\LookupType\AccountTypeCollection;
+use App\Models\AvailableFinalClientPackage;
 use App\Models\User;
 
 class ClientCreateCollection
@@ -18,8 +19,6 @@ class ClientCreateCollection
 
         $validated['user_account_type_id'] = $user_account_type->id;
 
-        $validated['total_customer_count'] = $validated['available_customer_count'];
-
         if (isset($validated['file'])) {
 
             $validated['type'] = FileModuleType::USER_PROFILE_AVATAR['key'];
@@ -30,6 +29,12 @@ class ClientCreateCollection
         }
 
         $user = User::create($validated);
+
+        AvailableFinalClientPackage::create([
+            'client_id' => $user->id,
+            'available_customer_count' => $validated['available_customer_count'],
+
+        ]);
 
         return $user;
     }

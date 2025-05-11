@@ -48,7 +48,6 @@ class ClientQueryCollection
         $active = -1,
         $sort = SystemDefault::DEFAUL_SORT,
     ) {
-
         return FinalClient::where('client_id', $user->id)
 
             ->where(function ($q) use ($query_string, $active) {

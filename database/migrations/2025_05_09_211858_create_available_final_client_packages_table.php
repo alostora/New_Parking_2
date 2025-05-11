@@ -11,15 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('incremental_numbers', function (Blueprint $table) {
+        Schema::create('available_final_client_packages', function (Blueprint $table) {
 
             $table->uuid('id')->primary();
 
-            $table->foreignUuid('final_client_id')->nullable();
+            $table->integer('available_customer_count')->nullable()->default(0);
 
-            $table->foreignUuid('garage_id')->nullable();
+            $table->integer('final_cliend_number_of_usage')->nullable()->default(0);
 
-            $table->integer('number')->nullable();
+            $table->foreignUuid('client_id')->nullable();
 
             $table->timestamps();
         });
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('incremental_numbers');
+        Schema::dropIfExists('available_final_client_packages');
     }
 };

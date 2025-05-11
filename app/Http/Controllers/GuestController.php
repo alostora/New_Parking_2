@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Session;
 use App\Http\Requests\FinalClientCreateRequest;
+use App\Models\AvailableFinalClientPackage;
 use App\Models\FinalClient;
 use App\Models\User;
 
@@ -21,15 +22,18 @@ class GuestController extends Controller
 
         $validated['garage_id'] = User::find($validated['client_id'])->garage_id;
 
+        //nextFinalClientNumber
+        $finalClient = FinalClient::where('client_id', $validated['client_id'])->latest()->first();
+        $nextFinalClientNumber = $finalClient ? (int)$finalClient->final_cliend_incremental_number + 1 : 1;
+        $validated['final_cliend_incremental_number'] = $nextFinalClientNumber;
 
-        $lastIncrementalNumber = FinalClient::where('client_id', $validated['client_id'])->latest()->first();
+        //nextAvailableFinalClientPackageNumber
+        $availableFinalClientPackage = AvailableFinalClientPackage::where('client_id', $validated['client_id'])->latest()->first();
+        $nextAvailableFinalClientPackageNumber = $availableFinalClientPackage ? (int)$availableFinalClientPackage->final_cliend_number_of_usage + 1 : 1;
+        $availableFinalClientPackage->update(['final_cliend_number_of_usage' => $nextAvailableFinalClientPackageNumber]);
 
-        $nextNumber = $lastIncrementalNumber ? (int)$lastIncrementalNumber->final_cliend_incremental_number + 1 : 1;
-
-        $validated['final_cliend_incremental_number'] = $nextNumber;
-
+        //geenrateGuestId
         $validated['guest_id'] = self::createSesstionGuestId();
-
 
         $finalClient = FinalClient::create($validated);
 
