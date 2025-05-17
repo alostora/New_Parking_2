@@ -6,13 +6,13 @@
             <!-- general form elements -->
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h3 class="box-title">@lang('guest.create')</h3>
+                    <h3 class="box-title">@lang('guest.create', ['garage_name' => request()->user->garage->name])</h3>
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
                 <form role="form" action="{{ url('guest/final-client/registration') }}" method="POST">
                     @csrf
-                    <input type="hidden" name="client_id" value="{{ Request('user') }}">
+                    <input type="hidden" name="client_id" value="{{ request()->user->id }}">
                     <div class="box-body">
                         <div class="form-group">
                             <div class="col-md-6">

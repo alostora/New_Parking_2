@@ -11,7 +11,7 @@ use App\Models\User;
 
 class GuestController extends Controller
 {
-    public function guestForm()
+    public function guestForm(User $user)
     {
         return view('Guest.createForm');
     }

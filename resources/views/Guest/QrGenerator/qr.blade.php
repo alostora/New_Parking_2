@@ -32,10 +32,13 @@
     function downloadQR() {
         const container = document.getElementById('qr-code-container');
 
+        const now = new Date();
+        const randomNum = Math.floor(Math.random() * 1000) + 1;
+
         html2canvas(container).then(canvas => {
             // Convert canvas to image and download
             const link = document.createElement('a');
-            link.download = 'qr-code.png';
+            link.download = now + '-' + randomNum + '-qr-code.png';
             link.href = canvas.toDataURL('image/png');
             link.click();
         });

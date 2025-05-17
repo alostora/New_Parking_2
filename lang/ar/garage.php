@@ -10,6 +10,7 @@ return [
     'name' => 'الاسم',
     'name_ar' => 'الاسم (عربي)',
     'site_number' => 'رقم الموقع',
+    'voucher_valid_hours' => 'عدد الساعات المتاحة للقسيمة',
 
     'phone' => 'الهاتف',
     'address' => 'العنوان',

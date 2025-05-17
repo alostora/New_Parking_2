@@ -21,6 +21,10 @@ return new class extends Migration
 
             $table->string('site_number')->nullable();
 
+            $table->string('voucher_valid_hours')->nullable()->default(1);
+
+            /////////////////////////////////////////////////
+
             $table->double('hour_cost')->nullable()->default(0);
 
             $table->string('open_at')->nullable();

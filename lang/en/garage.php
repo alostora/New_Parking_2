@@ -10,6 +10,7 @@ return [
     'name' => 'Name',
     'name' => 'Name (AR)',
     'site_number' => 'Site Number',
+    'voucher_valid_hours' => 'Voucher Valid hours Until',
 
 
 

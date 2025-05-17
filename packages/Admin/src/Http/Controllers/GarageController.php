@@ -47,14 +47,14 @@ class GarageController extends Controller
         return view('Admin/Garage/index', $data);
     }
 
-    public function show(Garage $garage)
-    {
-        return response()->success(
-            trans('general.retrieved'),
-            new GarageResource($garage),
-            StatusCode::OK
-        );
-    }
+    // public function show(Garage $garage)
+    // {
+    //     return response()->success(
+    //         trans('general.retrieved'),
+    //         new GarageResource($garage),
+    //         StatusCode::OK
+    //     );
+    // }
 
     public function create()
     {

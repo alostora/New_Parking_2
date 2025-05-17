@@ -24,6 +24,8 @@ class Garage extends Model
 
         'site_number',
 
+        'voucher_valid_hours',
+
         'free_hours',
 
         'hour_cost',
