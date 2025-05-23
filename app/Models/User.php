@@ -83,7 +83,11 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function getClientQrAttribute()
     {
-        return QrCode::size(100)/* ->backgroundColor(255, 255, 0) */->generate(url('guest/final-client/registration/' . $this->id));
+        return QrCode::generate(url('guest/final-client/registration/' . $this->id));
+
+        $svg = QrCode::format('svg')/* ->backgroundColor(255, 255, 0) */->generate(url('guest/final-client/registration/' . $this->id));
+        $svg = str_replace('<svg', '<svg width="570" height="570"', $svg);
+        return $svg;
     }
 
     protected function createdAt(): Attribute
