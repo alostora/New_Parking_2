@@ -39,6 +39,8 @@ class User extends Authenticatable implements MustVerifyEmail
 
         'address',
 
+        'voucher_valid_hours',
+
         'country_id',
 
         'governorate_id',

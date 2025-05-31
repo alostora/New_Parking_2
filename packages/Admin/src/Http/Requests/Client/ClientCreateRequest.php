@@ -33,6 +33,8 @@ class ClientCreateRequest extends FormRequest
 
             "password" => ["bail", "required", "string", "max:255"],
 
+            "voucher_valid_hours" => ["bail", "required", "integer", "min:1", "max:24"],
+
             "available_customer_count" => ["bail", "required", "integer", "max:1000"],
 
             "address" => ["bail", "nullable", "string", "max:255"],

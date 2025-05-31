@@ -48,6 +48,8 @@ class ClientUpdateRequest extends FormRequest
 
             "available_customer_count" => ["bail", "required", "integer", "max:1000"],
 
+            "voucher_valid_hours" => ["bail", "required", "integer", "min:1", "max:24"],
+
             "address" => ["nullable", "string", "max:255"],
 
             "country_id" => [

@@ -39,7 +39,7 @@ class GarageUpdateRequest extends FormRequest
                 Rule::unique('garages', 'site_number')->ignore($request->garage->site_number, 'site_number')
             ],
 
-            "voucher_valid_hours" => ["bail", "required", "integer", "min:1", "max:24"],
+            "voucher_valid_hours" => ["bail", "nullable", "integer", "min:1", "max:24"],
         ];
     }
 

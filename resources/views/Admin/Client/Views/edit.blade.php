@@ -88,10 +88,24 @@
                                 </div>
 
                                 <div class="col-md-6">
-                                    <label for="available_customer_count">@lang('client.new_customers')<span style="color:red">(+-)</span></label>
+                                    <label for="available_customer_count">@lang('client.new_customers')<span
+                                            style="color:red">(+-)</span></label>
                                     <input type="number" class="form-control" name="available_customer_count"
                                         id="available_customer_count"
                                         value="{{ (int) $user->available_customer_count }}" required>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-6">
+                                    <label for="voucher_valid_hours">@lang('client.voucher_valid_hours')</label>
+                                    <input required type="number" min="1" max="24"
+                                        value="{{ $user->voucher_valid_hours }}" class="form-control"
+                                        name="voucher_valid_hours" id="voucher_valid_hours"
+                                        placeholder="@lang('client.voucher_valid_hours')">
                                 </div>
                             </div>
                         </div>

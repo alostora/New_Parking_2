@@ -21,6 +21,7 @@ return [
     "stopped_at" => "Stopped At",
     "collected_cash" => "Collected Cash",
     "delivered_cash" => "Delivered Cash",
+    'voucher_valid_hours' => 'Voucher Valid hours Until',
 
     "new_customers" => "New Customer",
     "total_last_charged_customer" => "Last Charged Customer",

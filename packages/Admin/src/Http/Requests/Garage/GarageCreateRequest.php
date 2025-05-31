@@ -33,7 +33,7 @@ class GarageCreateRequest extends FormRequest
                 "unique:garages,site_number"
             ],
 
-            "voucher_valid_hours" => ["bail", "required", "integer", "min:1", "max:24"],
+            "voucher_valid_hours" => ["bail", "nullable", "integer", "min:1", "max:24"],
 
             "name" => ["bail", "required", "string", "max:255"],
 

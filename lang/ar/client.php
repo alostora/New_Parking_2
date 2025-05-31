@@ -21,6 +21,7 @@ return [
     "stopped_at" => "تارخ الايقاف",
     "collected_cash" => "الاكراميات المحصلة",
     "delivered_cash" => "المبالغ المستلمة",
+    'voucher_valid_hours' => 'عدد الساعات المتاحة للقسيمة',
 
     "new_customers" => "عملاء جدد",
     "total_last_charged_customer" => "العملاء المضافة اخيرا",

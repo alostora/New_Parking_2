@@ -35,13 +35,13 @@
                                     <input required type="text" class="form-control" name="site_number"
                                         id="site_number" value="{{ $garage->site_number }}">
                                 </div>
-                                <div class="col-md-6">
+                                {{-- <div class="col-md-6">
                                     <label for="voucher_valid_hours">@lang('garage.voucher_valid_hours')</label>
                                     <input required type="number" min="1" max="24"
                                         value="{{ $garage->voucher_valid_hours }}" class="form-control"
                                         name="voucher_valid_hours" id="voucher_valid_hours"
                                         placeholder="@lang('garage.voucher_valid_hours')">
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>

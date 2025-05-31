@@ -52,7 +52,7 @@
                         <th>@lang('garage.name')</th>
                         <th>@lang('garage.name_ar')</th>
                         <th>@lang('garage.site_number')</th>
-                        <th>@lang('garage.voucher_valid_hours')</th>
+                        {{-- <th>@lang('garage.voucher_valid_hours')</th> --}}
                         <th>@lang('garage.operations')</th>
                     </tr>
                 </thead>
@@ -64,7 +64,7 @@
                                 <td> {{ $garage->name }} </td>
                                 <td> {{ $garage->name_ar }} </td>
                                 <td> {{ $garage->site_number }} </td>
-                                <td> {{ $garage->voucher_valid_hours }} </td>
+                                {{-- <td> {{ $garage->voucher_valid_hours }} </td> --}}
                                 <td>
                                     <a href="{{ url('admin/garage/edit/' . $garage->id) }}" class="btn btn-info btn-sm">
                                         <i class="fa fa-edit"></i>
