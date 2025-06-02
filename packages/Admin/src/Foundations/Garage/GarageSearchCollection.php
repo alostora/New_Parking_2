@@ -14,6 +14,8 @@ class GarageSearchCollection
         $query_string = -1,
         $site_number = -1,
         $active = -1,
+        $date_from = -1,
+        $date_to = -1,
         $sort = SystemDefault::DEFAUL_SORT,
         $per_page = SystemDefault::DEFAUL_PAGINATION_COUNT
     ) {
@@ -24,6 +26,8 @@ class GarageSearchCollection
             $query_string,
             $site_number,
             $active,
+            $date_from,
+            $date_to,
             $sort,
         )->paginate($per_page);
 

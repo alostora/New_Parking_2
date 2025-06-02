@@ -92,7 +92,8 @@
             "bPaginate": false,
             "bSort": true,
             "buttons": [ /* "copy" */ , /*  "csv", */
-                "excel", /*  "pdf", */ /*  "print", */ /*  "colvis" */
+                /*"excel"*/
+                , /*  "pdf", */ /*  "print", */ /*  "colvis" */
             ]
         }).buttons().container().appendTo('#example2_wrapper .col-md-6:eq(0)');
         // $('#example2').DataTable({
@@ -147,6 +148,28 @@
         return false;
     }
 
+    function requestDateFrom(value) {
+
+        const url = new URL(location.href);
+
+        url.searchParams.set('date_from', value);
+
+        location.href = url
+
+        return false;
+    }
+
+    function requestDateTo(value) {
+
+        const url = new URL(location.href);
+
+        url.searchParams.set('date_to', value);
+
+        location.href = url
+
+        return false;
+    }
+
     $(document).ready(function() {
 
         if (document.getElementById("example2_wrapper") != null) {
@@ -180,6 +203,15 @@
                         <option value="active" {{ Request('active') && Request('active') == 'active' ? 'selected' : '' }} >@lang('general.active')</option>
                             <option value="inactive" {{ Request('active') && Request('active') == 'inactive' ? 'selected' : '' }} >@lang('general.inactive')</option>
                         </select>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="date_to">@lang('general.date_to')</label>
+                        <input id="date_to" type="date" class="form-control" onchange='requestDateTo(this.value)' value="{{ Request('date_to') }}">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="date_from">@lang('general.date_from')</label>
+                        <input id="date_from" type="date" class="form-control" onchange='requestDateFrom(this.value)' value="{{ Request('date_from') }}">
                     </div>
                 `
         }

@@ -4,6 +4,7 @@ namespace Admin\Foundations\Garage;
 
 use App\Constants\SystemDefault;
 use App\Models\Garage;
+use Carbon\Carbon;
 
 class GarageQueryCollection
 {
@@ -14,6 +15,8 @@ class GarageQueryCollection
         $query_string = -1,
         $site_number = -1,
         $active = -1,
+        $date_from = -1,
+        $date_to = -1,
         $sort = SystemDefault::DEFAUL_SORT,
     ) {
         return Garage::where(function ($q) use (
@@ -22,7 +25,9 @@ class GarageQueryCollection
             $site_number,
             $country_id,
             $governorate_id,
-            $active
+            $active,
+            $date_from,
+            $date_to,
         ) {
 
             if ($type_id && $type_id != -1) {
@@ -65,6 +70,25 @@ class GarageQueryCollection
 
                 $q
                     ->where('stopped_at', '!=', null);
+            }
+            if ($date_from && $date_from != -1 && $date_to && $date_to != -1) {
+                $q
+                    ->whereBetween('created_at', [
+                        Carbon::create($date_from),
+                        Carbon::create($date_to)->endOfDay(),
+                    ]);
+            } elseif ($date_from && $date_from != -1) {
+                $q
+                    ->whereBetween('created_at', [
+                        Carbon::create($date_from)->startOfDay(),
+                        Carbon::create(3000, 01, 01),
+                    ]);
+            } elseif ($date_from && $date_from != -1) {
+                $q
+                    ->whereBetween('created_at', [
+                        Carbon::create(1900, 01, 01),
+                        Carbon::create($date_to)->endOfDay(),
+                    ]);
             }
         })
             ->orderBy('created_at', $sort);

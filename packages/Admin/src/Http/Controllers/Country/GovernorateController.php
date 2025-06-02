@@ -24,6 +24,8 @@ class GovernorateController extends Controller
             $country,
             -1,
             -1,
+            -1,
+            -1,
             $request->get('sort') ? $request->get('sort') : SystemDefault::DEFAUL_SORT,
             $request->get('per_page') ?? SystemDefault::DEFAUL_PAGINATION_COUNT
         );
@@ -37,6 +39,8 @@ class GovernorateController extends Controller
             $country,
             $request->get('query_string') ?? -1,
             $request->get('active') ?? -1,
+            $request->get('date_from') ?? -1,
+            $request->get('date_to') ?? -1,
             $request->get('sort') ? $request->get('sort') : SystemDefault::DEFAUL_SORT,
             $request->get('per_page') ?? SystemDefault::DEFAUL_PAGINATION_COUNT
         );
@@ -50,6 +54,8 @@ class GovernorateController extends Controller
             $request->get('country_id') ?? -1,
             $request->get('query_string') ?? -1,
             $request->get('active') ?? -1,
+            $request->get('date_from') ?? -1,
+            $request->get('date_to') ?? -1,
             $request->get('sort') ? $request->get('sort') : SystemDefault::DEFAUL_SORT,
             $request->get('per_page') ?? SystemDefault::DEFAUL_PAGINATION_COUNT
         );

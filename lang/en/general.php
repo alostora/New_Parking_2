@@ -41,5 +41,7 @@ return [
     "ASC" => "ASC",
 
     "DESC" => "DESC",
+    "date_from" => "Date from",
+    "date_to" => "Date to",
 
 ];

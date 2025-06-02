@@ -48,6 +48,7 @@
                         <th>@lang('final_client.name')</th>
                         <th>@lang('final_client.phone')</th>
                         <th>@lang('final_client.garage')</th>
+                        <th>@lang('final_client.created_at')</th>
                         {{-- <th>@lang('final_client.related_client')</th> --}}
                     </tr>
                 </thead>
@@ -59,6 +60,7 @@
                                 <td> {{ $finalClient->name }} </td>
                                 <td> {{ $finalClient->phone }} </td>
                                 <td> {{ $finalClient->garage->name }} </td>
+                                <td> {{ $finalClient->created_at }} </td>
                                 {{-- <td> {{ $finalClient->client->name }} </td> --}}
                             </tr>
                         @endforeach
