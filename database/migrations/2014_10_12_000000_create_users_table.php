@@ -31,7 +31,7 @@ return new class extends Migration
 
             $table->string('api_token')->nullable();
 
-            $table->string('voucher_valid_hours')->nullable()->default(1);
+            // $table->string('voucher_valid_hours')->nullable()->default(1);
 
             $table->foreignUuid('country_id')->nullable();
 

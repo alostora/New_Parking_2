@@ -80,7 +80,7 @@
                             </div>
                         </div>
 
-                        <div class="row">
+                        {{-- <div class="row">
                             <div class="form-group">
                                 <div class="col-md-6">
                                     <label for="voucher_valid_hours">@lang('client.voucher_valid_hours')</label>
@@ -89,7 +89,7 @@
                                         placeholder="@lang('client.voucher_valid_hours')">
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="box-footer">
                         <button type="submit" class="btn btn-primary">@lang('client.submit')</button>

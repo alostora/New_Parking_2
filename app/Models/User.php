@@ -39,7 +39,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
         'address',
 
-        'voucher_valid_hours',
+        // 'voucher_valid_hours',
 
         'country_id',
 

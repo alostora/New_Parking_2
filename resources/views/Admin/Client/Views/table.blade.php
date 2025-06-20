@@ -56,7 +56,7 @@
                         <th>@lang('client.total_customer_count')</th>
                         <th>@lang('client.used_customer_count')</th>
                         <th>@lang('client.available_customer_count')</th>
-                        <th>@lang('client.voucher_valid_hours')</th>
+                        {{-- <th>@lang('client.voucher_valid_hours')</th> --}}
                         <th>@lang('client.created_at')</th>
 
                         <th>@lang('client.final_clients')</th>
@@ -79,7 +79,7 @@
                                 <td> {{ $user->availableCustomerCount }} </td>
                                 <td> {{ $user->totalUsedCustomer }} </td>
                                 <td> {{ $user->totalAvailableCustomer }} </td>
-                                <td> {{ $user->voucher_valid_hours }} </td>
+                                {{-- <td> {{ $user->voucher_valid_hours }} </td> --}}
                                 <td> {{ $user->created_at }} </td>
 
                                 <td>
