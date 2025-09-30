@@ -42,8 +42,8 @@
 
         // Create QR code container with specific size
         const qrContainer = document.createElement('div');
-        qrContainer.style.width = '570px';
-        qrContainer.style.height = '570px';
+        qrContainer.style.width = '370px'; //Controle qr size
+        qrContainer.style.height = '370px'; //Controle qr size
         qrContainer.innerHTML = document.getElementById('qr-code-display').innerHTML;
 
         // Scale the SVG
